@@ -1,0 +1,10 @@
+{
+  "FolderOrderSettings": [
+    {"name":"Objects","order":1,"path":"folders/Objects.yy",},
+    {"name":"Sprites","order":2,"path":"folders/Sprites.yy",},
+    {"name":"Scripts","order":3,"path":"folders/Scripts.yy",},
+  ],
+  "ResourceOrderSettings": [
+    {"name":"o_chara","order":1,"path":"objects/o_chara/o_chara.yy",},
+  ],
+}
