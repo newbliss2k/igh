@@ -7,6 +7,6 @@ if room=r_init {
 
 if room=r_gameplay_test {
 	
-	instance_create_depth(50,50,0,o_sora)
+	instance_create_depth(50,50,0,o_chara)
 	
 }
