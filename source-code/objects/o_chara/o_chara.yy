@@ -29,7 +29,10 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": null,
+  "spriteId": {
+    "name": "s_zero_idle",
+    "path": "sprites/s_zero_idle/s_zero_idle.yy",
+  },
   "spriteMaskId": null,
   "visible": true,
 }

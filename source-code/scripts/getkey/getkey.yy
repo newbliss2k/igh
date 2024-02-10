@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "Getkey Scripts",
-    "path": "folders/Scripts/Getkey Scripts.yy",
+    "name": "Scripts",
+    "path": "folders/Scripts.yy",
   },
 }
