@@ -33,19 +33,29 @@ function scr_getkey_setup(){
 		global.key1.x=ini_read_real("key1","back",ord("X"))
 		global.key1.c=ini_read_real("key1","menu",ord("C"))
 		
+		global.key1.prev=ini_read_real("key1","prev",ord("Q"))
+		global.key1.next=ini_read_real("key1","next",ord("E"))
+		
+		global.key1.atk=ini_read_real("key1","atk",mouse_left)
+		
 		global.key1.res=ini_read_real("key1","res",ord("R"))
 		global.key1.esc=ini_read_real("key1","esc",vk_escape)
 		
 		// secondary keys definition
 		
-		global.key2.up=ini_read_real("key2","up",unset)
-		global.key2.left=ini_read_real("key2","left",unset)
-		global.key2.down=ini_read_real("key2","down",unset)
-		global.key2.right=ini_read_real("key2","right",unset)
+		global.key2.up=ini_read_real("key2","up",ord("W"))
+		global.key2.left=ini_read_real("key2","left",ord("A"))
+		global.key2.down=ini_read_real("key2","down",ord("S"))
+		global.key2.right=ini_read_real("key2","right",ord("D"))
 		
 		global.key2.z=ini_read_real("key2","ok",vk_enter)
 		global.key2.x=ini_read_real("key2","back",vk_shift)
 		global.key2.c=ini_read_real("key2","menu",vk_control)
+		
+		global.key2.prev=ini_read_real("key2","prev",unset)
+		global.key2.next=ini_read_real("key2","next",unset)
+		
+		global.key2.atk=ini_read_real("key2","atk",unset)
 		
 		global.key2.res=ini_read_real("key2","res",unset)
 		global.key2.esc=ini_read_real("key2","esc",unset)

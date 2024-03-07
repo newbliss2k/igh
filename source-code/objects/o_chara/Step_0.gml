@@ -1,35 +1,64 @@
-// X MOVEMENT
+//	-----------------			
+//	Teleport to mouse			
+//	-----------------			
 
-x_control=getkey("right")-getkey("left")
-x_speed+=x_control*x_velocity
-
-x_speed-=x_friction*sign(x_speed)
-if abs(x_speed)>x_max_speed x_speed=x_max_speed*sign(x_speed)
-
-
-
-if !(place_meeting(x+x_speed,y,o_solid)) {
-	x+=x_speed
-} else while place_meeting(x+sign(x_speed),y,o_solid) {
-	x+=sign(x_speed)
+if getkey("res") {
+	x	=	mouse_x
+	y	=	mouse_y
 }
 
-sprite_timer--
+		//	-----------------------		
+		//	Горизонтальное движение		
+		//	-----------------------		
 
-if x_speed>0 image_xscale=1
-if x_speed<0 image_xscale=-1
 
-if abs(x_speed)>0 and sprite_index=s_zero_idle {
-	sprite_index=s_zero_idle_to_run
-	sprite_timer=4
+
+		//	---------------------		
+		//	Вертикальное движение		
+		//	---------------------		
+
+	//	Управление состояением
+
+if place_meeting(x,y+1,o_solid) {		//	Определяем состояние объекта: если объект находится на земле,
+	y_state="ground"					//	он получает соответствующее состояние.
+	y_coyot_timer=y_coyot_timer_max		//	Также мы даем телу время койота.
+}
+else {
+	if !(y_state="jump") {				//	Иначе, если объект не находится в состоянии прыжка,
+		y_state="air"					//	он получает состояние "в воздухе".
+	}
 }
 
-if abs(x_speed)=0 and sprite_index=s_zero_run {
-	sprite_index=s_zero_run_to_idle
-	sprite_timer=5
+	//	Управление прыжком
+
+if coyot_timer>0 and y_control(pressed)=-1 {			//	Если у тела есть время койота (т.е. он находится на земле или находился на ней только что)
+														//	и кнопка прыжка только что нажата, нам нужно приготовить тело к прыжку:
+	x_speed=0											//	Обнуляем горизонтальную скорость.
+	y_jump_preserve_timer=y_jump_preserve_timer_max		//	Задаем заддержку перед прыжком: через несколько кадров тело совершит прыжок.
+	y_coyot_timer=0										//	Обнуляем и время койота.
+}
+else y_coyot_timer--									//	Иначе уменьшаем значение таймера на единицу.
+
+if y_jump_preserve_timer=0 {							//	Когда задержка заканчивается, тело совершает прыжок.
+	y_speed=y_jump										//	Приравниваем вертикальную скорость к импульсу прыжка.
+	x_speed=x_jump*x_control()							//	То же самое с горизонтальной скоростью, если кнопка нажата.
 }
 
-if sprite_timer<1 {
-	if abs(x_speed)>0 sprite_index=s_zero_run
-	if abs(x_speed)=0 sprite_index=s_zero_idle
+	//	Применение гравитации и скорости
+
+y_speed+=y_gravity												//	Применяем гравитацию к скорости.
+
+if abs(y_speed)>y_speed_max {									//	Если модуль скорости больше максимальной скорости,
+	y_speed=y_speed_max*sign(y_speed)							//	модуль скорости приравнивается к максимальной скорости с тем же знаком.
 }
+
+if !place_meeting(x,y+y_speed,o_solid) {						//	Если объект не столкнется с твердым телом,
+	y+=y_speed													//	мы передвигаем объект.
+}
+else {
+	while !place_meeting(x,y+sign(y_speed),o_solid) {
+		y+=sign(y_speed)										//	Иначе мы передвигаем объект вплотную к твердому телу.
+	}
+	y_speed=0													//	Затем мы обнуляем скорость объекта.
+}
+

@@ -1,5 +1,5 @@
-/*if (global.osflavor != 4)
-    instance_destroy()*/
+if (global.osflavor != 4)
+    instance_destroy()
 _joy_rightp = 0
 _joy_leftp = 0
 _joy_upp = 0
