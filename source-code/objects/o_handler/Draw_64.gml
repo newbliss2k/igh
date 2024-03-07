@@ -1,8 +1,8 @@
 draw_text(0,0,device_mouse_x_to_gui(0))
 draw_text(0,20,device_mouse_y_to_gui(0))
 
-draw_text(0,40,o_chara.x)
-draw_text(0,60,o_chara.y)
+draw_text(0,40,o_chara.y_speed)
+draw_text(0,60,o_chara1.y_speed)
 
 /*draw_set_alpha(0.1)
 

@@ -25,7 +25,7 @@
   "physicsSensor":false,
   "physicsShape":1,
   "physicsShapePoints":[],
-  "physicsStartAwake":true,
+  "physicsStartAwake":false,
   "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

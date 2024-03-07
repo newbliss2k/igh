@@ -88,9 +88,9 @@ if y_control>-1 /*no jump*/ and y_state="jump" y_state="air"
 
 
 if y_state="jump" {
-	y_speed+=y_gravity*y_factor*y_grab_mod_jump()
+	y_speed+=y_gravity*y_factor
 	if y_speed>0 y_state="air"
-} else y_speed+=y_gravity*y_grab_mod_air()
+} else y_speed+=y_gravity
 
 if y_speed>y_speed_grab_max and !(y_grab=0) y_speed=y_speed_grab_max
 

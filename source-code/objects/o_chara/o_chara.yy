@@ -30,7 +30,7 @@
     {"x":36.0,"y":35.0,},
     {"x":0.0,"y":35.0,},
   ],
-  "physicsStartAwake":true,
+  "physicsStartAwake":false,
   "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
