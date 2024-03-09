@@ -40,6 +40,7 @@ function scr_getkey_setup(){
 		
 		global.key1.res=ini_read_real("key1","res",ord("R"))
 		global.key1.esc=ini_read_real("key1","esc",vk_escape)
+		global.key1.debug_gravity=ini_read_real("key1","debug gravity",ord("P"))
 		
 		// secondary keys definition
 		
@@ -59,6 +60,7 @@ function scr_getkey_setup(){
 		
 		global.key2.res=ini_read_real("key2","res",unset)
 		global.key2.esc=ini_read_real("key2","esc",unset)
+		global.key2.debug_gravity=ini_read_real("key2","debug gravity",unset)
 		
 	ini_close()
 	

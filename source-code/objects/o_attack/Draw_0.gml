@@ -1,0 +1,1 @@
+draw_sprite_ext(s_attack,-1,x,y,1.5,1.5,direction,c_white,1)

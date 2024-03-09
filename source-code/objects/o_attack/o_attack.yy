@@ -1,12 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"o_chara1",
+  "%Name":"o_attack",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"o_chara1",
+  "name":"o_attack",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -25,18 +26,15 @@
   "physicsSensor":false,
   "physicsShape":1,
   "physicsShapePoints":[],
-  "physicsStartAwake":false,
+  "physicsStartAwake":true,
   "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"s_zero_idle",
-    "path":"sprites/s_zero_idle/s_zero_idle.yy",
+    "name":"s_attack",
+    "path":"sprites/s_attack/s_attack.yy",
   },
-  "spriteMaskId":{
-    "name":"s_zero_mask",
-    "path":"sprites/s_zero_mask/s_zero_mask.yy",
-  },
+  "spriteMaskId":null,
   "visible":true,
 }

@@ -1,9 +1,7 @@
 {
   "$GMObject":"",
   "%Name":"o_solid",
-  "eventList":[
-    {"$GMEvent":"","%Name":"","collisionObjectId":{"name":"o_chara","path":"objects/o_chara/o_chara.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "eventList":[],
   "managed":true,
   "name":"o_solid",
   "overriddenProperties":[],
@@ -33,7 +31,7 @@
   "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
-  "solid":true,
+  "solid":false,
   "spriteId":{
     "name":"s_solid",
     "path":"sprites/s_solid/s_solid.yy",

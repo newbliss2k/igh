@@ -31,6 +31,7 @@ if !(x_control=sign(x_speed)) if abs(x_speed)>x_friction
 	if y_state="ground" x_speed-=x_friction*sign(x_speed)
 	else x_speed-=x_airres*sign(x_speed)
 else x_speed=0
+
 if abs(x_speed)>x_max_speed x_speed=x_max_speed*sign(x_speed)
 //if abs(x_speed)<(x_velocity-0.01) x_speed=0
 

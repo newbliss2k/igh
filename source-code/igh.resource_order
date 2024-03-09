@@ -1,8 +1,8 @@
 {
   "FolderOrderSettings":[
     {"name":"Objects","order":1,"path":"folders/Objects.yy",},
-    {"name":"Base Objects","order":2,"path":"folders/Objects/Base Objects.yy",},
-    {"name":"Handle Objects","order":3,"path":"folders/Objects/Handle Objects.yy",},
+    {"name":"Base Objects","order":3,"path":"folders/Objects/Base Objects.yy",},
+    {"name":"Handle Objects","order":4,"path":"folders/Objects/Handle Objects.yy",},
     {"name":"Particles","order":4,"path":"folders/Particles.yy",},
     {"name":"Scripts","order":3,"path":"folders/Scripts.yy",},
     {"name":"Chara","order":1,"path":"folders/Scripts/Chara.yy",},
@@ -14,6 +14,7 @@
   ],
   "ResourceOrderSettings":[
     {"name":"o_aim","order":2,"path":"objects/o_aim/o_aim.yy",},
+    {"name":"o_attack","order":2,"path":"objects/o_attack/o_attack.yy",},
     {"name":"o_chara","order":1,"path":"objects/o_chara/o_chara.yy",},
     {"name":"o_control","order":1,"path":"objects/o_control/o_control.yy",},
     {"name":"o_solidsemi_clone","order":1,"path":"objects/o_solidsemi_clone/o_solidsemi_clone.yy",},
@@ -36,8 +37,11 @@
     {"name":"s_zero_run","order":1,"path":"sprites/s_zero_run/s_zero_run.yy",},
     {"name":"s_zero_wallgrab","order":7,"path":"sprites/s_zero_wallgrab/s_zero_wallgrab.yy",},
     {"name":"s_zero_wallslide","order":8,"path":"sprites/s_zero_wallslide/s_zero_wallslide.yy",},
+    {"name":"s_attack","order":11,"path":"sprites/s_attack/s_attack.yy",},
+    {"name":"sts_base_fg_flipped","order":2,"path":"sprites/sts_base_fg_flipped/sts_base_fg_flipped.yy",},
     {"name":"sts_base_fg","order":1,"path":"sprites/sts_base_fg/sts_base_fg.yy",},
     {"name":"ts_base_bg","order":1,"path":"tilesets/ts_base_bg/ts_base_bg.yy",},
+    {"name":"ts_base_fg_flipped","order":3,"path":"tilesets/ts_base_fg_flipped/ts_base_fg_flipped.yy",},
     {"name":"ts_base_fg","order":2,"path":"tilesets/ts_base_fg/ts_base_fg.yy",},
   ],
 }

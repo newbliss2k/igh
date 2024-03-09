@@ -34,7 +34,7 @@
   "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
-  "solid":true,
+  "solid":false,
   "spriteId":{
     "name":"s_zero_idle",
     "path":"sprites/s_zero_idle/s_zero_idle.yy",
