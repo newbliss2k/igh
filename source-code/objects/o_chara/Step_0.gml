@@ -1,6 +1,6 @@
-//	-----------------			
-//	Teleport to mouse			
-//	-----------------			
+	//	----------------------
+	//	Дебаг
+	//	----------------------
 
 if getkey("res") {
 	x	=	mouse_x
@@ -13,12 +13,26 @@ if getkey("debug_gravity",pressed) {
 	y+=sign(y_gravity)*sprite_get_height(mask_index)*2
 }
 
+//	----------------------
+//	Буфферинг кноки прыжка
+//	----------------------
+
 if getkey("up",pressed) {
 	key_buffer_up=1
 }
 
+		//	-----
+		//	Атака
+		//	-----
+
+if y_state="ground" or !(y_grab=0) {
+	attack_cd=0
+	attack_first=1
+}
+
 if attack_cd<1 {
 	if getkey("atk",pressed) {
+		y_state="air"
 		attack_cd=attack_cd_max
 		x_speed=0
 		x_speed=attack_velocity*attack_velocity_x*dcos(point_direction(x,y-50,mouse_x,mouse_y))
@@ -31,6 +45,7 @@ if attack_cd<1 {
 			y_speed=0
 			y_speed=-attack_velocity*attack_velocity_y*dsin(point_direction(x,y-50,mouse_x,mouse_y))*0.1
 		}
+		
 		//	Создаем клинок на месте персонажа
 		var _attack
 		_attack=instance_create_depth(x,y-50,-1,o_attack)
@@ -169,15 +184,6 @@ else {
 		y+=sign(y_speed)										//	Иначе мы передвигаем объект вплотную к твердому телу.
 	}
 	y_speed=0													//	Затем мы обнуляем скорость объекта.
-}
-
-		//	-----
-		//	Атака
-		//	-----
-
-if y_state="ground" or !(y_grab=0) {
-	attack_cd=0
-	attack_first=1
 }
 
 		//	--------

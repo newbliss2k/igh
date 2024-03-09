@@ -32,10 +32,10 @@ function y_control(_type=0,_buffer=0) {
 
 y_speed						=	0				//	Вертикальная скорость тела
 y_speed_max					=	50				//	Максимальная вертикальная скорость тела
-y_speed_max_grab			=	5				//	Максимальная вертикальная скорость тела при спуске по стене
+y_speed_max_grab			=	4				//	Максимальная вертикальная скорость тела при спуске по стене
 
-y_jump_height				=	66				//	Максимальная высота прыжка
-y_jump_time_to_apex			=	200				//	Время, нужное для прыжка на максимальную высоту
+y_jump_height				=	60				//	Максимальная высота прыжка
+y_jump_time_to_apex			=	160				//	Время, нужное для прыжка на максимальную высоту
 
 y_gravity					=	(y_jump_height*2)/(y_jump_time_to_apex^2)						//	Расчет гравитации
 y_jump						=	-sqrt(abs(y_gravity*y_jump_height*2))*sign(y_gravity)			//	Расчет вертикального импульса прыжка
@@ -84,12 +84,5 @@ function y_grab_factor(_return,_return_down) {
 			case 0: return 1
 			default: return _return
 		}
-	}
-}
-
-function y_grab_factor_air() {
-	switch y_grab {
-		case 0: return 1
-		default: return 0.4
 	}
 }
