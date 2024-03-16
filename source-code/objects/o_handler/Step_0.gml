@@ -33,3 +33,19 @@ var _new_x = lerp(_view_x, _goto_x, 0.1);
 var _new_y = lerp(_view_y, _goto_y, 0.1);
 
 camera_set_view_pos(view_camera[0], _new_x, _new_y)
+
+
+if getkey("z",pressed) {
+    //randomize lights
+    var _brightness;
+    for (var i = 0; i < ( num_lights * 6 ); i += 6) {
+        light_array[i] = random_range(0, room_width ); //x
+        light_array[i+1] = random_range( 0, room_height ); //y
+        light_array[i+2] = random_range(20,250); //z
+        _brightness = power( random( 1 ), 3 ) * 6000 + 1500;
+        light_array[i+3] = random(1) * _brightness; //r
+        light_array[i+4] = random(1) * _brightness; //g
+        light_array[i+5] = random(1) * _brightness; //b
+    }
+
+}

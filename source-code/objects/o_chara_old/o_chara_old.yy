@@ -1,12 +1,12 @@
 {
   "$GMObject":"",
-  "%Name":"o_chara1",
+  "%Name":"o_chara_old",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"o_chara1",
+  "name":"o_chara_old",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",

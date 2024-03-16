@@ -36,7 +36,6 @@ if attack_cd<1 {
 		attack_cd=attack_cd_max
 		x_speed=attack_velocity*attack_velocity_x*dcos(point_direction(x,y-50,mouse_x,mouse_y))
 		if attack_first=1 {
-			if y_grab=sign_x_
 			y_speed=-attack_velocity*attack_velocity_y*dsin(point_direction(x,y-50,mouse_x,mouse_y))
 			attack_first=0
 		}
@@ -62,7 +61,6 @@ if abs(y_speed)<attack_unblock_speed attack_y_speedblock=0
 
 if y_state="ground" y_grab_cd=0
 if y_grab=0 {
-	y_grab_buffer=-1
 	if y_grab_cd<1 {
 		if attack_x_speedblock=0 {
 			x_speed+=x_control()*x_velocity
@@ -74,7 +72,7 @@ if y_grab=0 {
 	else y_grab_cd--
 }
 else if y_grab_buffer=-1 {
-	if x_control()=-y_grab y_grab_buffer=y_grab_buffer_max
+	if x_control(pressed)=-y_grab y_grab_buffer=y_grab_buffer_max
 }
 else if y_grab_buffer=0 {
 	x_speed+=x_control()*x_velocity
@@ -169,7 +167,7 @@ if y_state="jump" {										//	Если игрок удерживает кно�
 	y_speed+=y_gravity*y_grab_factor(0.5,2)*y_factor			//	применяем уменьшенную гравитацию, чтобы игрок прыгал выше.
 	if y_speed*y_gravity>0 y_state="air"				//	Если игрок падает, переводим объект в состояние падения.
 }
-else y_speed+=y_gravity_air*y_grab_factor(0.3,2)					//	Тогда он будет получать увеличенную гравитациюю.
+else y_speed+=y_gravity*y_grab_factor(0.3,2)					//	Тогда он будет получать увеличенную гравитациюю.
 
 if abs(y_speed)>y_speed_max {				//	Если модуль скорости больше максимальной скорости,
 	y_speed=y_speed_max*sign(y_speed)		//	модуль скорости приравнивается к максимальной скорости с тем же знаком.

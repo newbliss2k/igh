@@ -7,10 +7,3 @@ draw_text(0,80,o_chara.y_grab_buffer)
 draw_text(0,100,o_chara.y_grab)
 
 
-/*draw_set_alpha(0.1)
-
-var _grid=60
-
-for (var _i=0; _i<(1920/_grid); _i++) draw_line(_i*_grid,0,_i*_grid,1080)
-for (var _i=0; _i<(1080/_grid); _i++) draw_line(0,_i*_grid,1920,_i*_grid)
-/**/
