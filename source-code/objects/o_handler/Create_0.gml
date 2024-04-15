@@ -1,6 +1,6 @@
 if room=r_init {
 	
-	scr_getkey_setup()
+	getkey_setup()
 	room_goto(r_gameplay_test)
 	
 }
@@ -32,14 +32,14 @@ _mouse_factor = 3
     num_lights = 10;
     light_array[59] = 0;
     var _brightness;
-    for (var i = 0; i < ( num_lights * 6 ); i += 6) {
-        light_array[i] = random_range(0, room_width ); //x
-        light_array[i+1] = random_range( 0, room_height ); //y
-        light_array[i+2] = random_range(20,250); //z
+    for (var _i = 0; _i < ( num_lights * 6 ); _i += 6) {
+        light_array[_i] = random_range(0, room_width ); //x
+        light_array[_i+1] = random_range( 0, room_height ); //y
+        light_array[_i+2] = random_range(20,250); //z
         _brightness = power( random( 1 ), 3 ) * 6000 + 1500;
-        light_array[i+3] = random(1) * _brightness; //r
-        light_array[i+4] = random(1) * _brightness; //g
-        light_array[i+5] = random(1) * _brightness; //b
+        light_array[_i+3] = random(1) * _brightness; //r
+        light_array[_i+4] = random(1) * _brightness; //g
+        light_array[_i+5] = random(1) * _brightness; //b
     }
 //--------------------------------------------------------------
     //used to keep track of the current texture assigned to shader normal sampler "normal_tex"

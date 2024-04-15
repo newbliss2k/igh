@@ -1,4 +1,84 @@
-//	-----------------------		
+function set_sprite(_sprite_index,_image_index=-1) {
+	sprite_index=_sprite_index
+	if _image_index>-1 image_index=_image_index
+}
+
+function control_walk(_type=0) {
+	return getkey("right",_type) - getkey("left",_type)
+}
+
+function control_jump(_type=0,_buffer=0) {
+	return getkey("down",_type) - getkey("up",_type)
+}
+
+key_buffer_up=0
+
+x_speed							=	0
+y_speed							=	0
+
+x_speed_max						=	10
+x_speed_max_air					=	15
+y_speed_max						=	20
+
+walk_acc						=	10
+walk_acc1						=	0.3
+walk_acc2						=	0.6
+walk_turnaround					=	1.5
+walk_friction					=	1.5
+walk_airres						=	0.2
+
+jump_height						=	32*2
+jump_time_to_apex				=	120
+
+g								=	(jump_height*2)/(jump_time_to_apex^2)
+jump_h							=	10
+jump							=	sqrt(abs(g*jump_height*2))
+
+
+jumps							=	2
+jumps_max						=	2
+
+timer_coyot						=	0
+timer_coyot_max					=	5
+
+timer_jump						=	-1
+timer_jump_max					=	3
+
+grab							=	0
+grab_jump_h						=	11
+grab_jump						=	10
+
+mvt_locked						=	0
+unslip_locked					=	0
+unslip_locked_pressed			=	0
+
+timer_grab_control				=	0
+timer_grab_control_max			=	10
+
+timer_grab_ungrab				=	0
+timer_grab_ungrab_max			=	15
+timer_grab_ungrab_a				=	1
+timer_grab_ungrab_b				=	0
+
+attack_cd						=	0
+attack_first					=	1
+attack_cd_max					=	10
+attack_velocity_x				=	20
+attack_velocity_y				=	15
+
+log_push(g,c_blue,c_blue,c_aqua,c_aqua)
+log_push(jump,c_blue,c_blue,c_aqua,c_aqua)
+
+factor							=	0.35
+
+gdir							=	90
+state							=	"ground"
+
+
+
+normal_tex=0
+
+/*/	-----------------------		
 //	Горизонтальное движение		
 //	-----------------------		
 
@@ -12,6 +92,9 @@ x_speed_max					=	10				//	Максимальная горизонтальная
 x_velocity					=	0.75			//	Ускорение тела
 x_friction					=	1				//	Трение
 x_airres					=	0.25			//	Сопротивление воздуха
+
+x_dec						=	1
+x_acc						=	0.1
 
 x_speed_ascends				=	0				//	
 

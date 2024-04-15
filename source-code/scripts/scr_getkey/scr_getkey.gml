@@ -1,4 +1,4 @@
-function scr_getkey_setup(){
+function getkey_setup(){
 	
 	// this is setup script. it must be called in start of the game
 	
@@ -66,28 +66,28 @@ function scr_getkey_setup(){
 	
 }
 
-function scr_getkey_add(__key){
+function getkey_add(__key){
 	
 	if !(__key=unset) if __key > -2 return keyboard_check(__key)
 	else return mouse_check_button(__key+5)
 	
 }
 
-function scr_getkey_add_pressed(__key){
+function getkey_add_pressed(__key){
 	
 	if !(__key=unset) if __key > -2 return keyboard_check_pressed(__key)
 	else return mouse_check_button_pressed(__key+5)
 	
 }
 
-function scr_getkey_add_released(__key){
+function getkey_add_released(__key){
 	
 	if !(__key=unset) if __key > -2 return keyboard_check_released(__key)
 	else return mouse_check_button_released(__key+5)
 	
 }
 
-function scr_getkey_add_direct(__key){
+function getkey_add_direct(__key){
 	
 	if !(__key=unset) if __key > -2 return keyboard_check_direct(__key)
 	else throw("Error!")
@@ -103,13 +103,13 @@ function getkey(_key,_type=0){
 	
 	switch _type {
 		
-		case 0: if ((scr_getkey_add(_key1)) || (scr_getkey_add(_key2))) return 1 else return 0
+		case 0: if ((getkey_add(_key1)) || (getkey_add(_key2))) return 1 else return 0
 		
-		case pressed: if ((scr_getkey_add_pressed(_key1)) || (scr_getkey_add_pressed(_key2))) return 1 else return 0
+		case pressed: if ((getkey_add_pressed(_key1)) || (getkey_add_pressed(_key2))) return 1 else return 0
 		
-		case released: if ((scr_getkey_add_released(_key1)) || (scr_getkey_add_released(_key2))) return 1 else return 0
+		case released: if ((getkey_add_released(_key1)) || (getkey_add_released(_key2))) return 1 else return 0
 			
-		case direct: if ((scr_getkey_add_direct(_key1)) || (scr_getkey_add_direct(_key2))) return 1 else return 0
+		case direct: if ((getkey_add_direct(_key1)) || (getkey_add_direct(_key2))) return 1 else return 0
 		
 		case clear:
 			if _key1>0 keyboard_clear(_key1)

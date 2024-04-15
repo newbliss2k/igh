@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"scr_o_chara_step_phy",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_o_chara_step_phy",
+  "parent":{
+    "name":"Chara",
+    "path":"folders/Scripts/Chara.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

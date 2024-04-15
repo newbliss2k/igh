@@ -21,11 +21,11 @@ var _goto_y = o_chara.y + _mouse_y - (_view_h * 0.5)
 
 // borders
 
-if (_goto_x + _view_w) > room_width _goto_x = room_width - _view_w
+/*if (_goto_x + _view_w) > room_width _goto_x = room_width - _view_w
 if (_goto_y + _view_h) > room_height _goto_y = room_height - _view_h
 
 if _goto_x < 0 _goto_x = 0
-if _goto_y < 0 _goto_y = 0
+if _goto_y < 0 _goto_y = 0*/
 
 // lerping
 
@@ -38,14 +38,14 @@ camera_set_view_pos(view_camera[0], _new_x, _new_y)
 if getkey("z",pressed) {
     //randomize lights
     var _brightness;
-    for (var i = 0; i < ( num_lights * 6 ); i += 6) {
-        light_array[i] = random_range(0, room_width ); //x
-        light_array[i+1] = random_range( 0, room_height ); //y
-        light_array[i+2] = random_range(20,250); //z
+    for (var _i = 0; _i < ( num_lights * 6 ); _i += 6) {
+        light_array[_i] = random_range(0, room_width ); //x
+        light_array[_i+1] = random_range( 0, room_height ); //y
+        light_array[_i+2] = random_range(20,250); //z
         _brightness = power( random( 1 ), 3 ) * 6000 + 1500;
-        light_array[i+3] = random(1) * _brightness; //r
-        light_array[i+4] = random(1) * _brightness; //g
-        light_array[i+5] = random(1) * _brightness; //b
+        light_array[_i+3] = random(1) * _brightness; //r
+        light_array[_i+4] = random(1) * _brightness; //g
+        light_array[_i+5] = random(1) * _brightness; //b
     }
 
 }

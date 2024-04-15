@@ -1,9 +1,9 @@
 {
   "$GMScript":"",
-  "%Name":"scr_chara_step",
+  "%Name":"scr_o_chara_step_move",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_chara_step",
+  "name":"scr_o_chara_step_move",
   "parent":{
     "name":"Chara",
     "path":"folders/Scripts/Chara.yy",

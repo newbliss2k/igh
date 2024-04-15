@@ -1,202 +1,147 @@
-	//	----------------------
-	//	Дебаг
-	//	----------------------
 
-if getkey("res") {
-	x	=	mouse_x
-	y	=	mouse_y
-}
+#region CONTROL HANDLE
+	
+	
+#endregion
 
-if getkey("debug_gravity",pressed) {
-	y_gravity=-y_gravity
-	y_jump=-y_jump
-	y+=sign(y_gravity)*sprite_get_height(mask_index)*2
-}
+//	========
+//	FRICTION
+//	========
 
-//	----------------------
-//	Буфферинг кноки прыжка
-//	----------------------
+if place_meeting(x,y+1,o_solid) state="ground" else if !(state="air") state="jump"
 
-if getkey("up",pressed) {
-	key_buffer_up=1
-}
-
-		//	-----
-		//	Атака
-		//	-----
-
-if y_state="ground" or !(y_grab=0) {
-	attack_cd=0
-	attack_first=1
-}
-
-if attack_cd<1 {
-	if getkey("atk",pressed) {
-		y_state="air"
-		attack_cd=attack_cd_max
-		x_speed=attack_velocity*attack_velocity_x*dcos(point_direction(x,y-50,mouse_x,mouse_y))
-		if attack_first=1 {
-			if y_grab=sign_x_
-			y_speed=-attack_velocity*attack_velocity_y*dsin(point_direction(x,y-50,mouse_x,mouse_y))
-			attack_first=0
-		}
-		else {
-			y_speed=-attack_velocity*attack_velocity_y*dsin(point_direction(x,y-50,mouse_x,mouse_y))*0.1
-		}
-		attack_x_speedblock=1
-		attack_y_speedblock=1
-		//	Создаем клинок на месте персонажа
-		var _attack
-		_attack=instance_create_depth(x,y-50,-1,o_attack)
-		_attack.direction=point_direction(x,y-50,mouse_x,mouse_y)
+if control_walk()=0 if abs(x_speed)>walk_friction {
+	switch state {
+		case "ground": x_speed-=walk_friction*sign(x_speed); break;
+		default: x_speed-=walk_airres*sign(x_speed); break;
 	}
 }
-else attack_cd--
-
-		//	-----------------------
-		//	Горизонтальное движение
-		//	-----------------------
-
-if abs(x_speed)<attack_unblock_speed attack_x_speedblock=0
-if abs(y_speed)<attack_unblock_speed attack_y_speedblock=0
-
-if y_state="ground" y_grab_cd=0
-if y_grab=0 {
-	y_grab_buffer=-1
-	if y_grab_cd<1 {
-		if attack_x_speedblock=0 {
-			x_speed+=x_control()*x_velocity
-		}
-		else {
-			
-		}
-	}
-	else y_grab_cd--
-}
-else if y_grab_buffer=-1 {
-	if x_control()=-y_grab y_grab_buffer=y_grab_buffer_max
-}
-else if y_grab_buffer=0 {
-	x_speed+=x_control()*x_velocity
-	y_grab_buffer=-1
-}
-else if y_grab_buffer>0 {
-	y_grab_buffer--
-}
-
-//x_speed+=x_control()*x_velocity									//	Если кнопка движения вправо или влево нажата, увеличиваем модуль скорости
-if abs(x_speed)>x_speed_max x_speed-=x_friction*sign(x_speed)	//	Ограничиваем максимальную скорость.
-
-if !(x_control()=sign(x_speed)) if abs(x_speed)>x_friction
-	if y_state="ground" x_speed-=x_friction*sign(x_speed)
-	else x_speed-=x_airres*sign(x_speed)
 else x_speed=0
 
-x_speed_ascends=abs(x_control())									//	Эта переменная нужна, чтобы узнать, перемещался ли объект за этот кадр.
+//	========
+//	WALLGRAB
+//	========
 
-if !(place_meeting(x+x_speed,y,o_solid)) {					//	Если объект не столкнется с твердым телом,
-	x+=x_speed												//	передвигаем объект.
-} else {
-	while !(place_meeting(x+sign(x_speed),y,o_solid)) {		//	Иначе передвигаем объект вплотную к твердому телу.
-		x+=sign(x_speed)
-	}
-	x_speed=0												//	А затем обнуляем скорость.
-	x_speed_ascends=0										//	Также нужно обнулить эту переменную.
+grab_prev=grab
+
+grab = (place_meeting(x-abs(control_walk()), y, o_solid) - place_meeting(x+abs(control_walk()), y, o_solid))*!(state="ground")
+
+
+if (grab_prev=0 & grab=1) {
+	unslip_locked=10
+	unslip_locked_pressed=1
 }
 
-		//	---------------------
-		//	Вертикальное движение
-		//	---------------------
+mvt_locked = max(mvt_locked - 1, 0)
 
-	//	Управление состояением
+if control_walk(pressed)=grab unslip_locked_pressed=0
+if control_walk()=grab and unslip_locked_pressed=0 unslip_locked--
 
-if place_meeting(x,y+sign(y_gravity),o_solid) and y_jump_preserve_timer<0 {		//	Определяем состояние объекта: если объект находится на земле и не готовится к прыжку,
-	y_state="ground"					//	он получает соответствующее состояние.
-	y_coyot_timer=y_coyot_timer_max		//	Также мы даем телу время койота.
+if grab=0 unslip_locked=0
+
+//	====
+//	WALK
+//	====
+
+if (mvt_locked<=0) and (unslip_locked<=0) {
+	if sign(x_speed)=-control_walk() x_speed+=walk_turnaround*control_walk()
+	else {
+		if abs(x_speed)<1.5 x_speed+=walk_acc1*control_walk() else if abs(x_speed)<x_speed_max x_speed+=walk_acc2*control_walk()
+	}
+}
+
+//	=====
+//	LIMIT
+//	=====
+
+switch state {
+	case "ground": if abs(x_speed)>x_speed_max x_speed=sign(x_speed)*x_speed_max; break;
+	default: if abs(x_speed)>x_speed_max_air x_speed=sign(x_speed)*x_speed_max_air; break;
+}
+
+if y_speed>y_speed_max y_speed=y_speed_max
+
+//	=======
+//	JUMPING
+//	=======
+
+if place_meeting(x,y+1,o_solid) and (timer_jump<0) state="ground" else if !(state="air") state="jump"
+
+if state="ground" timer_coyot=timer_coyot_max
+if (state="ground") jumps=jumps_max
+if !(grab=0) jumps=0
+if control_jump(pressed,1)=-1 {
+	switch grab {
+		case 0:
+			if timer_coyot>0 or jumps>0 {
+				timer_jump=timer_jump_max
+				timer_coyot=0
+				jumps--
+			}
+			break;
+		default:
+		state="jump"
+		x_speed=grab_jump_h*grab
+		y_speed=-grab_jump
+		mvt_locked=10
+		key_buffer_up=0
+		 break;
+	}
+}
+if timer_coyot>0 timer_coyot--
+
+if timer_jump=0 {
+	timer_jump=-1
+	timer_coyot=0
+	state="jump"
+	if !(control_walk()=0) x_speed=jump_h*control_walk()
+	y_speed=-jump
+	key_buffer_up=0
+}
+else timer_jump--
+
+if ((state="jump") & (control_jump()>-1)) state="air"
+
+///	=======
+//	GRAVITY
+//	=======
+
+if (state="jump") {
+	y_speed+=g*factor
+	if (y_speed>-1) state="air"
 }
 else {
-	if !(y_state="jump") {				//	Иначе, если объект не находится в состоянии прыжка,
-		y_state="air"					//	он получает состояние "в воздухе".
-	}
+	if y_speed<0
+		y_speed+=g
+	else
+		y_speed+=g*0.6
 }
 
-	//	Прилипание к стене
-
-if place_meeting(x+abs(x_control()),y,o_solid) or place_meeting(x-abs(x_control()),y,o_solid) {
-	if y_state="jump" or y_state="air" {
-		y_grab=place_meeting(x+abs(x_control()),y,o_solid)-place_meeting(x-abs(x_control()),y,o_solid)
-	}
-}
-else if place_meeting(x+y_grab,y,o_solid) {
+#region APPLY SPEED
 	
-}
-else y_grab=0
-
-if y_state="ground" y_grab=0
-
-	//	Управление прыжком
-
-if !(y_grab=0) and y_control(pressed)=-1 {
-	y_speed=y_jump*y_grabjump
-	x_speed=x_jump*x_grabjump*-y_grab
-	y_state="jump"
-	y_grab_cd=y_grab_cd_max
-	key_buffer_up=0
-}
-
-if y_coyot_timer>0 and y_control(pressed,1)=-1 {			//	Если у тела есть время койота (т.е. он находится на земле или находился на ней несколько)
-														//	кадров назад) и кнопка прыжка только что нажата, нам нужно приготовить тело к прыжку:
-	x_speed=0											//	Обнуляем горизонтальную скорость.
-	y_jump_preserve_timer=y_jump_preserve_timer_max		//	Задаем заддержку перед прыжком: через несколько кадров тело совершит прыжок.
-	y_coyot_timer=0										//	Обнуляем и время койота.
-	key_buffer_up=0
-}
-else y_coyot_timer--									//	Иначе уменьшаем значение таймера на единицу.
-
-if y_jump_preserve_timer=0 {							//	Когда задержка заканчивается, тело совершает прыжок.
-	y_speed=y_jump										//	Приравниваем вертикальную скорость к импульсу прыжка.
-	x_speed=x_jump*x_control()							//	То же самое с горизонтальной скоростью, если кнопка нажата.
-	y_state="jump"										//	Переводим объект в состояние прыжка
-}
-if y_jump_preserve_timer>-1 y_jump_preserve_timer--		//	Уменьшаем время койота на единицу.
-
-	//	Применение гравитации и скорости
-
-if y_control()>-1 and y_state="jump" y_state="air"		//	Переводим объект в состояние падения, если не нажата кнопка прыжка и объект
-														//	находился в состоянии прыжка.
-
-if y_state="jump" {										//	Если игрок удерживает кнопку прыжка,
-	y_speed+=y_gravity*y_grab_factor(0.5,2)*y_factor			//	применяем уменьшенную гравитацию, чтобы игрок прыгал выше.
-	if y_speed*y_gravity>0 y_state="air"				//	Если игрок падает, переводим объект в состояние падения.
-}
-else y_speed+=y_gravity_air*y_grab_factor(0.3,2)					//	Тогда он будет получать увеличенную гравитациюю.
-
-if abs(y_speed)>y_speed_max {				//	Если модуль скорости больше максимальной скорости,
-	y_speed=y_speed_max*sign(y_speed)		//	модуль скорости приравнивается к максимальной скорости с тем же знаком.
-}
-
-if y_control() {
-	if y_speed>y_speed_max_grab*2 and !(y_grab=0) {
-		y_speed=y_speed_max_grab*2
+	if !(place_meeting(x+x_speed,y,o_solid)) {					//	Если объект не столкнется с твердым телом,
+		x+=x_speed												//	передвигаем объект.
 	}
-}
-else {
-	if y_speed>y_speed_max_grab and !(y_grab=0) {
-		y_speed=y_speed_max_grab
+	else {
+		while !(place_meeting(x+sign(x_speed),y,o_solid)) {		//	Иначе передвигаем объект вплотную к твердому телу.
+			x+=sign(x_speed)
+		}
+		x_speed=0												//	А затем обнуляем скорость.
 	}
-}
-
-if !place_meeting(x,y+y_speed,o_solid) {						//	Если объект не столкнется с твердым телом,
-	y+=y_speed													//	мы передвигаем объект.
-}
-else {
-	while !place_meeting(x,y+sign(y_speed),o_solid) {
-		y+=sign(y_speed)										//	Иначе мы передвигаем объект вплотную к твердому телу.
+	
+	if !place_meeting(x,y+y_speed,o_solid) {						//	Если объект не столкнется с твердым телом,
+		y+=y_speed													//	мы передвигаем объект.
 	}
-	y_speed=0													//	Затем мы обнуляем скорость объекта.
-}
+	else {
+		while !place_meeting(x,y+sign(y_speed),o_solid) {
+			y+=sign(y_speed)										//	Иначе мы передвигаем объект вплотную к твердому телу.
+		}
+		y_speed=0													//	Затем мы обнуляем скорость объекта.
+	}
+	
+#endregion
 
-		//	--------
+/*		//	--------
 		//	Анимации
 		//	--------
 
@@ -233,8 +178,11 @@ else {
 	else sprite_index=s_zero_wallgrab
 }
 
-if x_speed<0 image_xscale=-2			// Если горизонтальная скорость направлена влево (меньше нуля), поворачиваем спрайт влево.
-if x_speed>0 image_xscale=2				// Если горизонтальная скорость направлена вправо (больше нуля), поворачиваем спрайт вправо.
+if x_control()=-1 image_xscale=-2			// Если горизонтальная скорость направлена влево (меньше нуля), поворачиваем спрайт влево.
+if x_control()=1 image_xscale=2				// Если горизонтальная скорость направлена вправо (больше нуля), поворачиваем спрайт вправо.
+
+if y_grab=-1 image_xscale=-2			// Если горизонтальная скорость направлена влево (меньше нуля), поворачиваем спрайт влево.
+if y_grab=1 image_xscale=2				// Если горизонтальная скорость направлена вправо (больше нуля), поворачиваем спрайт вправо.
 
 image_yscale=2*sign(y_gravity)			// Поворачиваем спрайт в соответствии с направлением гравитации.
 

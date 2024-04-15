@@ -19,7 +19,7 @@
     {"name":"inst_20B16D0D","path":"rooms/r_gameplay_test/r_gameplay_test.yy",},
     {"name":"inst_285016AD","path":"rooms/r_gameplay_test/r_gameplay_test.yy",},
     {"name":"inst_448EB037","path":"rooms/r_gameplay_test/r_gameplay_test.yy",},
-    {"name":"inst_28C86E06","path":"rooms/r_gameplay_test/r_gameplay_test.yy",},
+    {"name":"inst_4AFAC178","path":"rooms/r_gameplay_test/r_gameplay_test.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -37,7 +37,7 @@
         {"$GMRInstance":"","%Name":"inst_20B16D0D","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_20B16D0D","objectId":{"name":"o_solid","path":"objects/o_solid/o_solid.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":3.2000003,"scaleY":54.4,"x":5760.0,"y":0.0,},
         {"$GMRInstance":"","%Name":"inst_285016AD","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_285016AD","objectId":{"name":"o_solidsemi","path":"objects/o_solidsemi/o_solidsemi.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":12.8,"scaleY":-4.8,"x":704.0,"y":96.0,},
         {"$GMRInstance":"","%Name":"inst_448EB037","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_448EB037","objectId":{"name":"o_solid","path":"objects/o_solid/o_solid.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":24.0,"scaleY":52.800003,"x":1376.0,"y":0.0,},
-        {"$GMRInstance":"","%Name":"inst_28C86E06","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_28C86E06","objectId":{"name":"o_chara","path":"objects/o_chara/o_chara.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":2.0,"scaleY":2.0,"x":384.0,"y":736.0,},
+        {"$GMRInstance":"","%Name":"inst_4AFAC178","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_4AFAC178","objectId":{"name":"o_chara","path":"objects/o_chara/o_chara.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":2.0,"scaleY":2.0,"x":224.0,"y":672.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"fg_flipped","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"fg_flipped","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":34,"SerialiseWidth":180,"TileCompressedData":[
           -22,-2147483648,-9,0,-171,-2147483648,8,85,86,85,86,85,86,85,86,-172,-2147483648,8,112,113,112,113,112,

@@ -1,9 +1,9 @@
 {
   "$GMScript":"",
-  "%Name":"getkey",
+  "%Name":"log_console",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"getkey",
+  "name":"log_console",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",

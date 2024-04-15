@@ -39,8 +39,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"s_zero_idle",
-    "path":"sprites/s_zero_idle/s_zero_idle.yy",
+    "name":"s_zero_mask",
+    "path":"sprites/s_zero_mask/s_zero_mask.yy",
   },
   "spriteMaskId":{
     "name":"s_zero_mask",
