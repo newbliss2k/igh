@@ -10,8 +10,8 @@
   "name":"o_solidsemi",
   "overriddenProperties":[],
   "parent":{
-    "name":"Base Objects",
-    "path":"folders/Objects/Base Objects.yy",
+    "name":"Walls",
+    "path":"folders/Objects/Base Objects/Walls.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -36,5 +36,5 @@
     "path":"sprites/s_solidsemi/s_solidsemi.yy",
   },
   "spriteMaskId":null,
-  "visible":false,
+  "visible":true,
 }

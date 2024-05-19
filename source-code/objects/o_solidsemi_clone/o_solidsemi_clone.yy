@@ -8,8 +8,8 @@
   "name":"o_solidsemi_clone",
   "overriddenProperties":[],
   "parent":{
-    "name":"Base Objects",
-    "path":"folders/Objects/Base Objects.yy",
+    "name":"Walls",
+    "path":"folders/Objects/Base Objects/Walls.yy",
   },
   "parentObjectId":{
     "name":"o_solid",

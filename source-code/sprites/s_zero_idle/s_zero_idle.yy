@@ -69,7 +69,7 @@
     },
     "name":"s_zero_idle",
     "playback":1,
-    "playbackSpeed":0.15,
+    "playbackSpeed":0.2,
     "playbackSpeedType":1,
     "resourceType":"GMSequence",
     "resourceVersion":"2.0",

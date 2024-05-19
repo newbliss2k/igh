@@ -1,7 +1,11 @@
+self.x=0
+self.y=0
+
+global.game.animspeed=1
+
 if room=r_init {
 	
-	getkey_setup()
-	room_goto(r_gameplay_test)
+	//room_goto(r_gameplay_test)
 	
 }
 
@@ -15,10 +19,24 @@ global.osflavor=os_type
 global.aspectratio=display_get_width()/display_get_height()
 instance_create_depth(20,140,-15999,o_control)
 
-view_camera[0]=camera_create_view(0,0,view_wport[0],view_hport[0],0,noone,-1,-1,-1,-1)
+
+var _camera_x = 0
+var _camera_y = 0
+
+if instance_exists(o_chara) {
+	//_camera_x=o_chara.x
+	//_camera_y=o_chara.y
+}
+
+view_camera[0]=camera_create_view(_camera_x/3*2,_camera_y/3*2,view_wport[0],view_hport[0],0,noone,-1,-1,-1,-1)
 _mouse_x = device_mouse_x_to_gui(0)/3*2
 _mouse_y = device_mouse_y_to_gui(0)/3*2
 _mouse_factor = 3
+
+shake_x=0
+shake_y=0
+
+camera_chara_error_threw=0
 
     randomize();
 //--------------------------------------------------------------

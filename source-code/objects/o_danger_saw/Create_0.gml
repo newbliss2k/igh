@@ -1,0 +1,1 @@
+rotspeed=1

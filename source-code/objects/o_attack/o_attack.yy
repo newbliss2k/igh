@@ -10,8 +10,8 @@
   "name":"o_attack",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Chara",
+    "path":"folders/Objects/Chara.yy",
   },
   "parentObjectId":null,
   "persistent":false,

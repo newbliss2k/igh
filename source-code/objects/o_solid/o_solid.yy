@@ -6,8 +6,8 @@
   "name":"o_solid",
   "overriddenProperties":[],
   "parent":{
-    "name":"Base Objects",
-    "path":"folders/Objects/Base Objects.yy",
+    "name":"Walls",
+    "path":"folders/Objects/Base Objects/Walls.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -37,5 +37,5 @@
     "path":"sprites/s_solid/s_solid.yy",
   },
   "spriteMaskId":null,
-  "visible":false,
+  "visible":true,
 }

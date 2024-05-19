@@ -2,9 +2,9 @@
   "$GMSprite":"",
   "%Name":"s_solidsemi",
   "bboxMode":1,
-  "bbox_bottom":19,
+  "bbox_bottom":31,
   "bbox_left":0,
-  "bbox_right":19,
+  "bbox_right":31,
   "bbox_top":0,
   "collisionKind":5,
   "collisionTolerance":0,
@@ -18,7 +18,7 @@
   ],
   "gridX":0,
   "gridY":0,
-  "height":20,
+  "height":32,
   "HTile":false,
   "layers":[
     {"$GMImageLayer":"","%Name":"843ca0a8-8ffb-4a1d-96a9-00528c626953","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"843ca0a8-8ffb-4a1d-96a9-00528c626953","opacity":50.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
@@ -28,8 +28,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"Base Sprites",
-    "path":"folders/Sprites/Base Sprites.yy",
+    "name":"Walls",
+    "path":"folders/Sprites/Base Sprites/Walls.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
@@ -95,5 +95,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":20,
+  "width":32,
 }
