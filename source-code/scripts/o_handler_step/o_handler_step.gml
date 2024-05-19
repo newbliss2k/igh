@@ -21,8 +21,12 @@ function o_handler_step_control() {
 	
 	if getkey("esc",pressed) {
 		
-		with global.game if pause pause=0 else pause=1
-		
+		switch room {
+			case r_init:
+			
+			break
+			default: with global.game if pause pause=0 else pause=1
+		}
 	}
 		
 	if getkey("restart") {

@@ -1,7 +1,6 @@
+image_speed=global.game.animspeed*!global.game.pause
 
-image_speed=global.game.animspeed
-
-if dead_before<1 {
+if (dead_before<1) and (global.game.pause=0) {
 	
 	global.game.animspeed=1
 	

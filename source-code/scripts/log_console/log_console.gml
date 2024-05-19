@@ -2,9 +2,7 @@
 global.console={}
 with global.console {
 	timeout=4
-	log=[
-		["Welcome to IGH!",timeout,c_red,c_yellow,c_red,c_yellow,0,display_get_gui_height()],
-	]
+	log=[["Welcome to IGH!",timeout,c_red,c_yellow,c_red,c_yellow,0,display_get_gui_height()]]
 }
 
 //	0:STRING
