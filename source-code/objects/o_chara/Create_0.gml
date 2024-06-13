@@ -22,6 +22,16 @@ function control_jump(_type=0,_buffer=0) {
 		return getkey("down",_type) - getkey("up",_type)
 }
 
+global.game.player_control=0
+if global.game.restarted {
+	x=global.game.chara_restart_x
+	y=global.game.chara_restart_y
+	global.game.player_control=1
+}
+
+
+ai_control_walk=0
+ai_control_jump=0
 
 
 key_buffer_up=0
@@ -86,7 +96,7 @@ state_prev						=	"ground"
 weapon=10
 weapon_direction=0
 weapon_range=0
-recharge=0
+recharge=10
 
 
 normal_tex=0

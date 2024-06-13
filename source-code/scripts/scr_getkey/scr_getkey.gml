@@ -109,6 +109,8 @@ function getkey(_key,_type=0){
 		case clear:
 			if _key1>0 keyboard_clear(_key1)
 			if _key2>0 keyboard_clear(_key2)
+			
+			
 		
 		}
 

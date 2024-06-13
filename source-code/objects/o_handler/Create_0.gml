@@ -1,19 +1,14 @@
 self.x=0
 self.y=0
 
+game_timer=0
+
 global.game.animspeed=1
 
-if room=r_init {
-	
-	//room_goto(r_gameplay_test)
-	
-}
+instance_create_layer(mouse_x,mouse_y,"GUI",o_aim)
 
-if room=r_gameplay_test {
-	
-	instance_create_depth(mouse_x,mouse_y,0,o_aim)
-	
-}
+if room=r_menu_main global.game.screen="main"
+else global.game.screen="pause"
 
 global.osflavor=os_type
 global.aspectratio=display_get_width()/display_get_height()
@@ -37,6 +32,20 @@ shake_x=0
 shake_y=0
 
 camera_chara_error_threw=0
+
+o_chara_goto_x=0
+o_chara_goto_y=0
+
+
+
+
+
+
+
+
+
+
+
 
     randomize();
 //--------------------------------------------------------------

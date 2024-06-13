@@ -1,17 +1,16 @@
 {
   "$GMObject":"",
-  "%Name":"o_bullet",
+  "%Name":"o_fx_darken_in",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":75,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"o_bullet",
+  "name":"o_fx_darken_in",
   "overriddenProperties":[],
   "parent":{
-    "name":"Chara",
-    "path":"folders/Objects/Chara.yy",
+    "name":"FX Objects",
+    "path":"folders/Objects/FX Objects.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -32,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"s_bullet",
-    "path":"sprites/s_bullet/s_bullet.yy",
+    "name":"s_editdot",
+    "path":"sprites/s_editdot/s_editdot.yy",
   },
   "spriteMaskId":null,
   "visible":true,

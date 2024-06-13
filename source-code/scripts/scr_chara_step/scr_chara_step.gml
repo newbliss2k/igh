@@ -36,7 +36,7 @@ function o_chara_step_phy_grab(){
 			grab=place_meeting(x+abs(control_walk()),y,o_solid_slip)-place_meeting(x-abs(control_walk()),y,o_solid_slip)
 		}
 	}
-	else if place_meeting(x+grab,y,o_solid_slip) {
+	/*else */if place_meeting(x+grab,y,o_solid_slip) {
 		
 	}
 	else grab=0
@@ -57,17 +57,17 @@ function o_chara_step_phy_grab(){
 	
 }
 
-function o_chara_step_phy_crouch(){
+function o_chara_step_phy_crouch(_control_walk=0,_control_jump=0){
 	
 	crouch_timer=max(crouch_timer - 1, 0)
 	crouch_timer_flip=max(crouch_timer_flip - 1, 0)
 	
-	if (state="ground") and ((crouch_state=0 or crouch_state="post") or (crouch_state="crouch" and crouch_timer<10)) if ((control_jump()=1) and !(control_walk()=0)) { //if ((control_jump(pressed)=1) and !(control_walk()=0)) or ((control_jump()=1) and !(control_walk(pressed)=0)) {
+	if (state="ground") and ((crouch_state=0 or crouch_state="post") or (crouch_state="crouch" and crouch_timer<10)) if ((_control_jump=1) and !(_control_walk=0)) { //if ((control_jump(pressed)=1) and !(control_walk()=0)) or ((control_jump()=1) and !(control_walk(pressed)=0)) {
 		set_sprite(s_zero_precrouch,0)
 		crouch_state="pre"
 		crouch_timer=8
 		//x_speed=0
-		crouch_dir=control_walk()
+		crouch_dir=_control_walk
 		
 		key_buffer_down=0
 	}
@@ -231,7 +231,7 @@ function o_chara_step_attack(){
 			recharge = 20//dmm_recharge
 			//sprite_index = costume(chara,inv,"attack")
 			
-			var _bullet=instance_create_depth(x,y-30,1,o_bullet)
+			var _bullet=instance_create_layer(x,y-30,"Player",o_bullet)
 			var _range
 			if weapon_range=0 _range=0 else _range=+random_range(-weapon_range,weapon_range)
 			_bullet.image_angle=weapon_direction+_range//(-dmm_range,dmm_range)

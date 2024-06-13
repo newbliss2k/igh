@@ -1,6 +1,6 @@
 {
   "$GMFont":"",
-  "%Name":"font_default",
+  "%Name":"font_bigger",
   "AntiAlias":1,
   "applyKerning":0,
   "ascender":16,
@@ -392,7 +392,7 @@
     "8800":{"character":8800,"h":20,"offset":0,"shift":13,"w":10,"x":102,"y":68,},
     "8804":{"character":8804,"h":20,"offset":0,"shift":13,"w":10,"x":90,"y":68,},
     "8805":{"character":8805,"h":20,"offset":0,"shift":13,"w":10,"x":486,"y":90,},
-    "9647":{"character":9647,"h":20,"offset":2,"shift":10,"w":4,"x":322,"y":200,},
+    "9647":{"character":9647,"h":20,"offset":3,"shift":10,"w":4,"x":322,"y":200,},
   },
   "hinting":0,
   "includeTTF":false,
@@ -402,7 +402,7 @@
   "last":0,
   "lineHeight":20,
   "maintainGms1Font":false,
-  "name":"font_default",
+  "name":"font_bigger",
   "parent":{
     "name":"Fonts",
     "path":"folders/Other/Fonts.yy",

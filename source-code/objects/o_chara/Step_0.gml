@@ -2,27 +2,37 @@ image_speed=global.game.animspeed*!global.game.pause
 
 if global.game.pause=0 {
 	
-	o_chara_step_debug()
+	if global.game.player_control=1 {
+		
+		o_chara_step_debug()
+		
+		o_chara_step_start()
+		
+		o_chara_step_phy_grab()
+		
+		o_chara_step_phy_crouch(control_walk(),control_jump())
+		
+		o_chara_step_phy_walk(control_walk())
+		
+		o_chara_step_phy_friction(control_walk())
+		
+		o_chara_step_phy_jump()
+		
+		o_chara_step_phy_gravity(control_jump())
+		
+		o_chara_step_attack()
+		
+		o_chara_step_behaviour()
+		
+		o_chara_step_phy_apply_speed()
+		
+	}
 	
-	o_chara_step_start()
-	
-	o_chara_step_phy_grab()
-	
-	o_chara_step_phy_crouch()
-	
-	o_chara_step_phy_walk(control_walk())
-	
-	o_chara_step_phy_friction(control_walk())
-	
-	o_chara_step_phy_jump()
-	
-	o_chara_step_phy_gravity(control_jump())
-	
-	o_chara_step_attack()
-	
-	o_chara_step_behaviour()
-	
-	o_chara_step_phy_apply_speed()
+	else {
+		
+		scr_ai_chara()
+		
+	}
 	
 			//	--------
 			//	Анимации
