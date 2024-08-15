@@ -40,22 +40,25 @@ key_buffer_down=0
 x_speed							=	0
 y_speed							=	0
 
-x_speed_max						=	7.5
-x_speed_max_air					=	15
-y_speed_max						=	20
+x_speed_max						=	4
 
-walk_acc						=	10
-walk_acc1						=	0.3
-walk_acc2						=	0.6
+x_speed_max_default				=	4
+
+x_speed_max_air					=	4.5
+y_speed_max						=	10
+
+walk_acc						=	5
+walk_acc1						=	0.2
+walk_acc2						=	0.5
 walk_turnaround					=	1.5
 walk_friction					=	1.5
 walk_airres						=	0.2
 
-jump_height						=	32*3.5
-jump_time_to_apex				=	600
+jump_height						=	32*2
+jump_time_to_apex				=	400
 
 g								=	(jump_height*2)/(jump_time_to_apex^2)
-jump_h							=	8.5
+jump_h							=	5
 jump							=	sqrt(abs(g*jump_height*2))
 
 
@@ -98,8 +101,15 @@ weapon_direction=0
 weapon_range=0
 recharge=10
 
+attack_impulse=0
+
 
 normal_tex=0
 
-image_xscale=2
-image_yscale=2
+door_break_timer=0
+door_break_timer_max=15
+
+image_xscale=1
+image_yscale=1
+
+dead=0

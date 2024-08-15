@@ -13,7 +13,7 @@
   "name":"snd_9mm",
   "parent":{
     "name":"SFX",
-    "path":"folders/Other/SFX.yy",
+    "path":"folders/SFX.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

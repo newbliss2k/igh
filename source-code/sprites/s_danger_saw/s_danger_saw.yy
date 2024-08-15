@@ -28,7 +28,7 @@
   "origin":4,
   "parent":{
     "name":"Dangers",
-    "path":"folders/Sprites/Base Sprites/Dangers.yy",
+    "path":"folders/Sprites/Dangers.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

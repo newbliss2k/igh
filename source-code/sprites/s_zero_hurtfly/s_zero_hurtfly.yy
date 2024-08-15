@@ -29,7 +29,7 @@
   "origin":7,
   "parent":{
     "name":"Dead",
-    "path":"folders/Sprites/Costumes/Zero/Dead.yy",
+    "path":"folders/Sprites/Costume Zero/Dead.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -7,10 +7,10 @@ function room_restart_ext(){
 		case r_menu_main:
 			break;
 		
-		case r_game_test:
+		default:
 			room_restart()
 			global.game.chara_restart_x=160
-			global.game.chara_restart_y=512
+			global.game.chara_restart_y=448
 		break
 		
 	}

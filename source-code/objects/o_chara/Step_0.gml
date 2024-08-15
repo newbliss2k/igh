@@ -1,8 +1,12 @@
+
+
 image_speed=global.game.animspeed*!global.game.pause
 
 if global.game.pause=0 {
 	
 	if global.game.player_control=1 {
+		
+		o_solid_locker.x=-48
 		
 		o_chara_step_debug()
 		
@@ -50,16 +54,16 @@ if global.game.pause=0 {
 					set_sprite(s_zero_run_to_idle,0)
 				
 				} else if !(x_speed=0) {//if x_speed_ascends {
-					if sprite_index=s_zero_idle or sprite_index=s_zero_run_to_idle set_sprite(s_zero_idle_to_run,0)
+					if sprite_index=s_carol_idle or sprite_index=s_zero_run_to_idle set_sprite(s_zero_idle_to_run,0)
 					else if sprite_index=s_zero_idle_to_run { if image_index=4 set_sprite(s_zero_run,0) }
 					else if !(sprite_index=s_zero_run) set_sprite(s_zero_run,0)
 					else set_sprite(s_zero_run)
 				}
 				else {//if x_speed_ascends=0 {
 					if sprite_index=s_zero_run or sprite_index=s_zero_idle_to_run set_sprite(s_zero_run_to_idle,0)
-					else if sprite_index=s_zero_run_to_idle { if image_index=5 set_sprite(s_zero_idle,0)}
-					else if !(sprite_index=s_zero_idle) set_sprite(s_zero_idle,0)
-					else set_sprite(s_zero_idle)
+					else if sprite_index=s_zero_run_to_idle { if image_index=5 set_sprite(s_carol_idle,0)}
+					else if !(sprite_index=s_carol_idle) set_sprite(s_carol_idle,0)
+					else set_sprite(s_carol_idle)
 				}
 				break;
 	
@@ -70,6 +74,9 @@ if global.game.pause=0 {
 			case "air":
 				sprite_index=s_zero_fall
 				break;
+			
+			case "door":
+				if image_index>7 state="walk"
 	
 		}
 	}
@@ -85,13 +92,13 @@ if global.game.pause=0 {
 
 	//if control_walk()=-1 image_xscale=-2			// Если горизонтальная скорость направлена влево (меньше нуля), поворачиваем спрайт влево.
 	//if control_walk()=1 image_xscale=2				// Если горизонтальная скорость направлена вправо (больше нуля), поворачиваем спрайт вправо.
-	if x_speed<0 image_xscale=-2
-	if x_speed>0 image_xscale=2
+	if x_speed<0 image_xscale=-1
+	if x_speed>0 image_xscale=1
 
-	if grab=-1 image_xscale=-2			// Если горизонтальная скорость направлена влево (меньше нуля), поворачиваем спрайт влево.
-	if grab=1 image_xscale=2				// Если горизонтальная скорость направлена вправо (больше нуля), поворачиваем спрайт вправо.
+	if grab=-1 image_xscale=-1			// Если горизонтальная скорость направлена влево (меньше нуля), поворачиваем спрайт влево.
+	if grab=1 image_xscale=1				// Если горизонтальная скорость направлена вправо (больше нуля), поворачиваем спрайт вправо.
 
-	image_yscale=2*sign(g)			// Поворачиваем спрайт в соответствии с направлением гравитации.
+	image_yscale=sign(g)			// Поворачиваем спрайт в соответствии с направлением гравитации.
 
 
 

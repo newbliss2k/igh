@@ -26,8 +26,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"Control",
-    "path":"folders/Sprites/Control.yy",
+    "name":"Touch Control",
+    "path":"folders/Sprites/Touch Control.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

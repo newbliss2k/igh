@@ -28,8 +28,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"Walls",
-    "path":"folders/Sprites/Base Sprites/Walls.yy",
+    "name":"Solids",
+    "path":"folders/Sprites/Solids.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -1,0 +1,11 @@
+{
+  "$GMNotes":"",
+  "%Name":"doc_inventory",
+  "name":"doc_inventory",
+  "parent":{
+    "name":"igh",
+    "path":"igh.yyp",
+  },
+  "resourceType":"GMNotes",
+  "resourceVersion":"2.0",
+}

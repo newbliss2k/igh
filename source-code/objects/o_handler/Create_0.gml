@@ -1,11 +1,14 @@
 self.x=0
 self.y=0
 
+display_set_gui_size(1980,1080)
+
 game_timer=0
 
 global.game.animspeed=1
 
 instance_create_layer(mouse_x,mouse_y,"GUI",o_aim)
+instance_create_layer(mouse_x,mouse_y,"GUI",o_writer)
 
 if room=r_menu_main global.game.screen="main"
 else global.game.screen="pause"
@@ -23,7 +26,7 @@ if instance_exists(o_chara) {
 	//_camera_y=o_chara.y
 }
 
-view_camera[0]=camera_create_view(_camera_x/3*2,_camera_y/3*2,view_wport[0],view_hport[0],0,noone,-1,-1,-1,-1)
+view_camera[0]=camera_create_view(_camera_x/3*2,_camera_y/3*2,640,360,0,noone,-1,-1,-1,-1)
 _mouse_x = device_mouse_x_to_gui(0)/3*2
 _mouse_y = device_mouse_y_to_gui(0)/3*2
 _mouse_factor = 3
@@ -37,7 +40,15 @@ o_chara_goto_x=0
 o_chara_goto_y=0
 
 
-
+switch room {
+	case r_menu_main:
+		
+	break
+	
+	case r_game_test1_1:
+		//audio_play_sound(ost_metropolis,0,1)
+	break
+}
 
 
 

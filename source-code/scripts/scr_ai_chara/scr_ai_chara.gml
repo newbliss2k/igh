@@ -5,7 +5,7 @@ function scr_ai_chara(){
 		case r_menu_main:
 			break
 		
-		case r_game_test:
+		default:
 			
 			switch o_handler.game_timer {
 				
@@ -13,7 +13,6 @@ function scr_ai_chara(){
 				break
 				
 				case 30: ai_control_walk=0
-				inst_o_solid_locker.x=-48
 				break
 				
 				case 60: global.game.player_control=1

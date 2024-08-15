@@ -11,18 +11,22 @@ with global.inventory {
 
 function o_chara_step_debug() {
 	
-	if getkey("ctrl") and getkey("restart",pressed) {
+	/*if getkey("ctrl") and getkey("restart",pressed) {
 		x=mouse_x
 		y=mouse_y
-	}
+	}*/
 	
 }
 
 function o_chara_step_start() {
 	
 	state_prev=state
-	if place_meeting(x,y+1,o_solid) state="ground" else if !(state="air") state="jump"
-	
+	if state="door" {
+		
+	} else {
+		if place_meeting(x,y+1,o_solid) state="ground"
+		else if !(state="air") state="jump"
+	}
 	
 	
 }
@@ -95,9 +99,22 @@ function o_chara_step_phy_walk(_control_walk=0){
 	if mvt_locked<=0 _mvt_locked=1
 	else _mvt_locked=0.2
 	
+	if place_meeting(x+_control_walk,y,o_door) {
+		door_break_timer++
+	}
+	else door_break_timer = 0
+	
+	if door_break_timer = door_break_timer_max {
+		var _door = instance_place(x+_control_walk,y,o_door)
+		instance_create_depth(_door.x,_door.y,_door.depth,_door.child)
+		instance_destroy(_door)
+		set_sprite(s_zero_door,0)
+		state = "door"
+	}
+	
 	if (unslip_locked<=0) and (crouch_timer<=15 or !(crouch_state="crouch")) {
 		if sign(x_speed)=-_control_walk x_speed+=walk_turnaround*_control_walk*_mvt_locked
-		else {
+		else if !(state="door") {
 			if abs(x_speed)<1.5 x_speed+=walk_acc1*_control_walk*_mvt_locked else if abs(x_speed)<x_speed_max x_speed+=walk_acc2*_control_walk*_mvt_locked
 		}
 	}
@@ -125,7 +142,13 @@ function o_chara_step_phy_friction(_control_walk=0){
 
 function o_chara_step_phy_jump(){
 	
-	if place_meeting(x,y+1,o_solid) and (timer_jump<0) state="ground" else if !(state="air") state="jump"
+	if state = "door" {
+		
+	}
+	else {
+		if place_meeting(x,y+1,o_solid) and (timer_jump<0) state="ground"
+		else if !(state="air") state="jump"
+	}
 	
 	if state="ground" timer_coyot=timer_coyot_max
 	if (state="ground") jumps=jumps_max
@@ -219,7 +242,7 @@ function o_chara_step_phy_gravity(_control_jump=0){
 
 function o_chara_step_attack(){
 	
-	weapon_direction=point_direction(x,y-30,mouse_x,mouse_y)
+	weapon_direction=point_direction(x-4,y-26,mouse_x,mouse_y)
 	
 	if recharge<1 {
 		
@@ -231,14 +254,23 @@ function o_chara_step_attack(){
 			recharge = 20//dmm_recharge
 			//sprite_index = costume(chara,inv,"attack")
 			
-			var _bullet=instance_create_layer(x,y-30,"Player",o_bullet)
+			var _bullet=instance_create_layer(x-4,y-26,"Player",o_bullet)
 			var _range
-			if weapon_range=0 _range=0 else _range=+random_range(-weapon_range,weapon_range)
+			if weapon_range _range=random_range(-weapon_range,weapon_range) else _range=0
 			_bullet.image_angle=weapon_direction+_range//(-dmm_range,dmm_range)
-			_bullet.spd=50
+			//_bullet.spd=40
+			
+			x_speed-=attack_impulse*dcos(weapon_direction)
+			y_speed+=attack_impulse*dsin(weapon_direction)
 			
 			audio_play_sound(snd_9mm,1,0,0.5)
 			instance_create_depth(x,y,0,o_shake)
+			//instance_create_depth(x-4+14*dcos(weapon_direction),y-26-14*dsin(weapon_direction),depth,o_bullet_reflect)
+			for(var _i=0;_i<5;_i++){
+				var _particle = instance_create_depth(x-4+14*dcos(weapon_direction),y-26-14*dsin(weapon_direction),depth,o_bullet_particle)
+				_particle.direction = weapon_direction+random_range(-_particle.range,_particle.range)
+				_particle.speed = random_range(0,_particle.spd)
+			}
 			
 		}
 	}
@@ -257,6 +289,24 @@ function o_chara_step_behaviour(){
 }
 
 function o_chara_step_phy_apply_speed(){
+	
+	if (place_meeting(x+x_speed,y,o_slope)){
+		
+		if dead=0 {
+			while place_meeting(x+x_speed,y,o_slope) y-=1
+			x_speed_max=3
+		}
+		else {
+			
+			var _slope = instance_place(x+x_speed,y,o_slope)
+				x_speed+=_slope.image_xscale
+				//y+=_slope.image_yscale
+			log_push(string(_slope.image_xscale))
+			
+		}
+		//y_speed=0
+	}
+	else x_speed_max=x_speed_max_default
 	
 	if !(place_meeting(x+x_speed,y,o_solid)) x+=x_speed
 	else {

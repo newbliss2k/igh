@@ -82,6 +82,9 @@ gdir							=	90
 state							=	"ground"
 state_prev						=	"ground"
 
+door_break_timer = 0
+door_break_timer_max = -1
+
 
 weapon=10
 weapon_direction=0
@@ -91,10 +94,12 @@ recharge=0
 
 normal_tex=0
 
-image_xscale=2
-image_yscale=2
+image_xscale=1
+image_yscale=1
 
 /// DEAD
+
+dead=1
 
 global.game.animspeed=0
 

@@ -120,7 +120,7 @@
   "name":"font_default48",
   "parent":{
     "name":"Fonts",
-    "path":"folders/Other/Fonts.yy",
+    "path":"folders/Fonts.yy",
   },
   "pointRounding":0,
   "ranges":[

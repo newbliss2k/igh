@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Zero",
-    "path":"folders/Sprites/Costumes/Zero.yy",
+    "name":"Costume Zero",
+    "path":"folders/Sprites/Costume Zero.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

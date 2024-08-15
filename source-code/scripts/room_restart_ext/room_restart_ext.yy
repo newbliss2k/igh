@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"room_restart_ext",
   "isCompatibility":false,
   "isDnD":false,

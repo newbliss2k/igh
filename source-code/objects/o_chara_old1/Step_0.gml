@@ -206,16 +206,16 @@ if grab=0 {
 	
 		case "ground":
 			if !(x_speed=0) {//if x_speed_ascends {
-				if sprite_index=s_zero_idle or sprite_index=s_zero_run_to_idle set_sprite(s_zero_idle_to_run,0)
+				if sprite_index=s_carol_idle or sprite_index=s_zero_run_to_idle set_sprite(s_zero_idle_to_run,0)
 				else if sprite_index=s_zero_idle_to_run { if image_index=4 set_sprite(s_zero_run,0) }
 				else if !(sprite_index=s_zero_run) set_sprite(s_zero_run,0)
 				else set_sprite(s_zero_run)
 			}
 			else {//if x_speed_ascends=0 {
 				if sprite_index=s_zero_run or sprite_index=s_zero_idle_to_run set_sprite(s_zero_run_to_idle,0)
-				else if sprite_index=s_zero_run_to_idle { if image_index=5 set_sprite(s_zero_idle,0)}
-				else if !(sprite_index=s_zero_idle) set_sprite(s_zero_idle,0)
-				else set_sprite(s_zero_idle)
+				else if sprite_index=s_zero_run_to_idle { if image_index=5 set_sprite(s_carol_idle,0)}
+				else if !(sprite_index=s_carol_idle) set_sprite(s_carol_idle,0)
+				else set_sprite(s_carol_idle)
 			}
 			break;
 	

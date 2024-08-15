@@ -6,8 +6,8 @@
   "name":"o_danger_spike",
   "overriddenProperties":[],
   "parent":{
-    "name":"Danger Objects",
-    "path":"folders/Objects/Base Objects/Danger Objects.yy",
+    "name":"Dangers",
+    "path":"folders/Objects/Dangers.yy",
   },
   "parentObjectId":{
     "name":"o_danger",

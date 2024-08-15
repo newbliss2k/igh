@@ -6,8 +6,8 @@
   "name":"o_solid_slip",
   "overriddenProperties":[],
   "parent":{
-    "name":"Walls",
-    "path":"folders/Objects/Base Objects/Walls.yy",
+    "name":"Solids",
+    "path":"folders/Objects/Solids.yy",
   },
   "parentObjectId":{
     "name":"o_solid",

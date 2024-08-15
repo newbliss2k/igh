@@ -25,13 +25,12 @@ ini_open("file_config")
 	global.key1.left=ini_read_real("key1","left",vk_left)
 	global.key1.down=ini_read_real("key1","down",vk_down)
 	global.key1.right=ini_read_real("key1","right",vk_right)
+	
+	global.key1.shift=ini_read_real("key1","shift",vk_shift)
 		
-	global.key1.enter=ini_read_real("key1","ok",vk_enter)
-	global.key1.shift=ini_read_real("key1","back",vk_shift)
-	global.key1.ctrl=ini_read_real("key1","menu",vk_control)
-		
-	global.key1.prev=ini_read_real("key1","prev",ord("Q"))
-	global.key1.next=ini_read_real("key1","next",ord("E"))
+	global.key1.inv=ini_read_real("key1","prev",ord("E"))
+	
+	global.key1.ok=ini_read_real("key1","next",vk_space)
 		
 	global.key1.atk=ini_read_real("key1","atk",mouse_left)
 		
@@ -45,13 +44,12 @@ ini_open("file_config")
 	global.key2.left=ini_read_real("key2","left",ord("A"))
 	global.key2.down=ini_read_real("key2","down",ord("S"))
 	global.key2.right=ini_read_real("key2","right",ord("D"))
+	
+	global.key2.shift=ini_read_real("key2","shift",unset)
 		
-	global.key2.enter=ini_read_real("key2","ok",vk_space)
-	global.key2.shift=ini_read_real("key2","back",unset)
-	global.key2.ctrl=ini_read_real("key2","menu",unset)
-		
-	global.key2.prev=ini_read_real("key2","prev",unset)
-	global.key2.next=ini_read_real("key2","next",unset)
+	global.key2.inv=ini_read_real("key2","prev",unset)
+	
+	global.key2.ok=ini_read_real("key2","next",unset)
 		
 	global.key2.atk=ini_read_real("key2","atk",unset)
 		

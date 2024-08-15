@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scr_ai_chara",
   "isCompatibility":false,
   "isDnD":false,
